@@ -18,5 +18,7 @@ make lint:
 	uv run ruff check brain_games
 brain-even:
 	uv run brain-even
-brain_calc:
+brain-calc:
 	uv	run	brain-calc
+brain-gcd:
+	uv	run	brain-gcd
