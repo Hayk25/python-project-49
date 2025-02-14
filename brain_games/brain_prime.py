@@ -1,10 +1,10 @@
 import random
 
 def is_prime(num):
-
+    """Простая проверка на простое число"""
     if num < 2:
         return False
-    for i in range(2, int(num ** 0.5) + 1):
+    for i in range(2, num):  # Проверяем все числа от 2 до num-1
         if num % i == 0:
             return False
     return True
@@ -13,32 +13,25 @@ def brain_prime():
     print("Welcome to the Brain Games!")
     name = input("May I have your name? ")
     print(f"Hello, {name}!")
-    print("Answer \"yes\" if the number is prime. Otherwise answer \"no\".")
+    print('Answer "yes" if the number is prime. Otherwise answer "no".')
 
-    correct_answer_count = 0  # Количество правильных ответов
+    correct_answers = 0
 
-    while correct_answer_count < 3:
-        random_int = random.randint(1, 100)  # Генерируем случайное число
-        print(f"Question: {random_int}")
-
+    while correct_answers < 3:
+        num = random.randint(1, 50)  # Генерируем число от 1 до 50
+        print(f"Question: {num}")
         answer = input("Your answer: ").strip().lower()
 
-        # Проверяем правильность ответа
-        correct_answer = "yes" if is_prime(random_int) else "no"
-
-        if answer not in ["yes", "no"]:
-            print(f"'{answer}' is an incorrect input. Correct answer was '{correct_answer}'.")
-            print(f"Let's try again, {name}!")
-            return  # Завершаем игру при некорректном вводе
+        correct_answer = "yes" if is_prime(num) else "no"
 
         if answer == correct_answer:
             print("Correct!")
-            correct_answer_count += 1
+            correct_answers += 1
         else:
             print(f"'{answer}' is wrong answer ;(. Correct answer was '{correct_answer}'.")
             print(f"Let's try again, {name}!")
             return  # Завершаем игру при ошибке
 
-    print(f"Congratulations, {name}!")  # Если 3 правильных ответа подряд
+    print(f"Congratulations, {name}!")
 
 brain_prime()
