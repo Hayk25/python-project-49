@@ -1,11 +1,12 @@
-import random
 import math
+import random
+
+from brain_games.cli import welcome_user
 
 
 def gcd_game():
     print("Welcome to the Brain Games!")
-    name = input("May I have your name? ")
-    print(f"Hello, {name}!")
+    name = welcome_user()
     print("Find the greatest common divisor of given numbers.")
 
     correct_answers = 0
@@ -13,7 +14,6 @@ def gcd_game():
     while correct_answers < 3:
         num1 = random.randint(1, 100)
         num2 = random.randint(1, 100)
-
 
         correct_gcd = str(math.gcd(num1, num2))
 
@@ -24,11 +24,13 @@ def gcd_game():
             print("Correct!")
             correct_answers += 1
         else:
-            print(f"'{user_answer}' is wrong answer ;(. Correct answer was '{correct_gcd}'.")
+            print(f"'{user_answer}' is wrong answer ;(. "
+                  f"Correct answer was '{correct_gcd}'.")
             print(f"Let's try again, {name}!")
             return
 
     print(f"Congratulations, {name}!")
 
 
-gcd_game()
+if __name__ == '__main__':
+    gcd_game()

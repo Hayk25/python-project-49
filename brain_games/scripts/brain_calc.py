@@ -1,10 +1,11 @@
 import random
 
+from brain_games.cli import welcome_user
+
 
 def calculation():
     print("Welcome to the Brain Games!")
-    name = input("May I have your name? ")
-    print(f"Hello, {name}!")
+    name = welcome_user()
     print("What is the result of the expression?")
 
     correct_answers = 0  # Количество правильных ответов
@@ -24,11 +25,14 @@ def calculation():
             print("Correct!")
             correct_answers += 1
         else:
-            print(f"'{user_answer}' is wrong answer ;(. Correct answer was '{correct_result}'.")
+            print(f"'{user_answer}' is wrong answer ;(. "
+                  f"Correct answer was"
+                  f" '{correct_result}'.")
             print(f"Let's try again, {name}!")
             return  # Завершаем игру при ошибке
 
     print(f"Congratulations, {name}!")  # Если 3 правильных ответа подряд
 
 
-calculation()
+if __name__ == '__main__':
+    calculation()

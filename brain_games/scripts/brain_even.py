@@ -1,9 +1,11 @@
 import random
 
+from brain_games.cli import welcome_user
+
+
 def is_even():
     print('Welcome to the Brain Games!')
-    name = input('May I have your name? ')
-    print(f'Hello, {name}!')
+    name = welcome_user()
     print('Answer "yes" if the number is even, otherwise answer "no".')
 
     correct_answer_count = 0
@@ -14,9 +16,10 @@ def is_even():
 
         answer = input("Your answer: ").strip().lower()
 
-
         if answer not in ["yes", "no"]:
-            print(f"'{answer}' is an incorrect input. Correct answer was '{'yes' if random_int % 2 == 0 else 'no'}'.")
+            print(f"'{answer}' is an incorrect input. "
+                  f"Correct answer was "
+                  f"'{'yes' if random_int % 2 == 0 else 'no'}'.")
             print(f"Let's try again, {name}!")
             return
 
@@ -26,7 +29,8 @@ def is_even():
             print("Correct!")
             correct_answer_count += 1
         else:
-            print(f"'{answer}' is wrong answer ;(. Correct answer was '{correct_answer}'.")
+            print(f"'{answer}' is wrong answer ;(. "
+                  f"Correct answer was '{correct_answer}'.")
             print(f"Let's try again, {name}!")
             return
 
@@ -34,4 +38,5 @@ def is_even():
         print(f"Congratulations, {name}!")
 
 
-is_even()
+if __name__ == '__main__':
+    is_even()
