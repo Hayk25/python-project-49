@@ -37,6 +37,9 @@ def is_even():
     if correct_answer_count == 3:
         print(f"Congratulations, {name}!")
 
+def main():
+ is_even()
+
 
 if __name__ == '__main__':
-    is_even()
+    main()
