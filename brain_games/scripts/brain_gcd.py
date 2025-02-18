@@ -5,7 +5,6 @@ from brain_games.cli import welcome_user
 
 
 def gcd_game():
-    print("Welcome to the Brain Games!")
     name = welcome_user()
     print("Find the greatest common divisor of given numbers.")
 
@@ -32,5 +31,9 @@ def gcd_game():
     print(f"Congratulations, {name}!")
 
 
-if __name__ == '__main__':
+def main():
     gcd_game()
+
+
+if __name__ == '__main__':
+    main()

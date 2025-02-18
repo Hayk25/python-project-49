@@ -14,7 +14,6 @@ def is_prime(num):
 
 
 def brain_prime():
-    print("Welcome to the Brain Games!")
     name = welcome_user()
     print('Answer "yes" if the number is prime. Otherwise answer "no".')
 
@@ -39,5 +38,9 @@ def brain_prime():
     print(f"Congratulations, {name}!")
 
 
-if __name__ == '__main__':
+def main():
     brain_prime()
+
+
+if __name__ == '__main__':
+    main()

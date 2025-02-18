@@ -4,7 +4,6 @@ from brain_games.cli import welcome_user
 
 
 def is_even():
-    print('Welcome to the Brain Games!')
     name = welcome_user()
     print('Answer "yes" if the number is even, otherwise answer "no".')
 
@@ -37,8 +36,9 @@ def is_even():
     if correct_answer_count == 3:
         print(f"Congratulations, {name}!")
 
+
 def main():
- is_even()
+    is_even()
 
 
 if __name__ == '__main__':

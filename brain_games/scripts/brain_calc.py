@@ -4,7 +4,6 @@ from brain_games.cli import welcome_user
 
 
 def calculation():
-    print("Welcome to the Brain Games!")
     name = welcome_user()
     print("What is the result of the expression?")
 
@@ -34,5 +33,9 @@ def calculation():
     print(f"Congratulations, {name}!")  # Если 3 правильных ответа подряд
 
 
-if __name__ == '__main__':
+def main():
     calculation()
+
+
+if __name__ == '__main__':
+    main()
