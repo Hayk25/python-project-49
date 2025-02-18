@@ -3,43 +3,37 @@ import random
 from brain_games.cli import welcome_user
 
 
-def is_even():
+def progression_game():
     name = welcome_user()
-    print('Answer "yes" if the number is even, otherwise answer "no".')
+    print("What number is missing in the progression?")
 
-    correct_answer_count = 0
+    correct_answers = 0  # Количество правильных ответов
 
-    for i in range(3):
-        random_int = random.randint(1, 100)
-        print(f'Question: {random_int}')
+    while correct_answers < 3:
+        start = random.randint(1, 10)  # Начальное число
+        step = random.randint(2, 5)  # Шаг прогрессии
+        progression = [start + i * step for i in range(10)]  # Создаём 10 элементов
+        hidden_index = random.randint(0, 9)  # Индекс скрытого числа
+        correct_answer = str(progression[hidden_index])  # Запоминаем правильный ответ
+        progression[hidden_index] = ".."  # Заменяем число на ".."
 
-        answer = input("Your answer: ").strip().lower()
+        print("Question:", " ".join(map(str, progression)))
+        user_answer = input("Your answer: ").strip()
 
-        if answer not in ["yes", "no"]:
-            print(
-                f"'{answer}' is an incorrect input. "
-                f"The correct answer was "
-                f"'{'yes' if random_int % 2 == 0 else 'no'}'.")
-            print(f"Let's try again, {name}!")
-            return
-
-        correct_answer = "yes" if random_int % 2 == 0 else "no"
-
-        if answer == correct_answer:
+        if user_answer == correct_answer:
             print("Correct!")
-            correct_answer_count += 1
+            correct_answers += 1
         else:
-            print(f"'{answer}' is wrong answer ;(. "
+            print(f"'{user_answer}' is wrong answer ;(. "
                   f"Correct answer was '{correct_answer}'.")
             print(f"Let's try again, {name}!")
-            return
+            return  # Завершаем игру при ошибке
 
-    if correct_answer_count == 3:
-        print(f"Congratulations, {name}!")
+    print(f"Congratulations, {name}!")  # Если 3 правильных ответа подряд
 
 
 def main():
-    is_even()
+    progression_game()
 
 
 if __name__ == '__main__':
