@@ -7,15 +7,15 @@ def progression_game():
     name = welcome_user()
     print("What number is missing in the progression?")
 
-    correct_answers = 0  # Количество правильных ответов
+    correct_answers = 0
 
     while correct_answers < 3:
-        start = random.randint(1, 10)  # Начальное число
-        step = random.randint(2, 5)  # Шаг прогрессии
-        progression = [start + i * step for i in range(10)]  # Создаём 10 элементов
-        hidden_index = random.randint(0, 9)  # Индекс скрытого числа
-        correct_answer = str(progression[hidden_index])  # Запоминаем правильный ответ
-        progression[hidden_index] = ".."  # Заменяем число на ".."
+        start = random.randint(1, 10)
+        step = random.randint(2, 5)
+        progression = [start + i * step for i in range(10)]
+        hidden_index = random.randint(0, 9)
+        correct_answer = str(progression[hidden_index])
+        progression[hidden_index] = ".."
 
         print("Question:", " ".join(map(str, progression)))
         user_answer = input("Your answer: ").strip()
@@ -27,9 +27,9 @@ def progression_game():
             print(f"'{user_answer}' is wrong answer ;(. "
                   f"Correct answer was '{correct_answer}'.")
             print(f"Let's try again, {name}!")
-            return  # Завершаем игру при ошибке
+            return
 
-    print(f"Congratulations, {name}!")  # Если 3 правильных ответа подряд
+    print(f"Congratulations, {name}!")
 
 
 def main():
