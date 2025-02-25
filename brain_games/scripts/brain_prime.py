@@ -4,10 +4,9 @@ from brain_games.cli import welcome_user
 
 
 def is_prime(num):
-    """Простая проверка на простое число"""
     if num < 2:
         return False
-    for i in range(2, num):  # Проверяем все числа от 2 до num-1
+    for i in range(2, num):
         if num % i == 0:
             return False
     return True
@@ -15,12 +14,12 @@ def is_prime(num):
 
 def brain_prime():
     name = welcome_user()
-    print('Answer "yes" if the number is prime. Otherwise answer "no".')
+    print('Answer "yes" if given number is prime. Otherwise answer "no".')
 
     correct_answers = 0
 
     while correct_answers < 3:
-        num = random.randint(1, 50)  # Генерируем число от 1 до 50
+        num = random.randint(1, 50)
         print(f"Question: {num}")
         answer = input("Your answer: ").strip().lower()
 
@@ -33,7 +32,7 @@ def brain_prime():
             print(f"'{answer}' is wrong answer ;(. "
                   f"Correct answer was '{correct_answer}'.")
             print(f"Let's try again, {name}!")
-            return  # Завершаем игру при ошибке
+            return
 
     print(f"Congratulations, {name}!")
 
