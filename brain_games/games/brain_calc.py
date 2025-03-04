@@ -19,7 +19,7 @@ def generate_question_and_answer():
     left_number = random.randint(1, 100)
     right_number = random.randint(1, 100)
     action = random.choice(operands)
-    question = f"{left_number} {action} {right_number}"
+    question = f"Question: {left_number} {action} {right_number}"
     correct_answer = str(compute_expression(left_number, right_number, action))
     return question, correct_answer
 
