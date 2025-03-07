@@ -10,7 +10,7 @@ def run_game(game_logic, game_rule, game_name):
 
     while round_counter < ROUND_LIMIT:
         question, correct_answer = game_logic()
-        answer = ask_question(question)
+        answer = ask_question(f'Question: {question}')
         right_answer = compare_answer(answer, correct_answer)
 
         if right_answer:
