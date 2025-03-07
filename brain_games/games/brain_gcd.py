@@ -16,4 +16,5 @@ def generate_question_and_answer():
 
 def main():
     game_rule = 'Find the greatest common divisor of given numbers.'
+    print(game_rule)
     run_game(generate_question_and_answer, game_rule, "GCD Game")
