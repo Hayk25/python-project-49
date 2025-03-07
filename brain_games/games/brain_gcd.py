@@ -12,7 +12,7 @@ def gcd(a, b):
 def generate_question_and_answer():
     left_number = randint(1, 100)
     right_number = randint(1, 100)
-    question = f"{left_number} {right_number}"  # ✅ Без "Question:"
+    question = f"Question: {left_number} {right_number}"  # 💪 Вернул как хочет Hexlet
     correct_answer = str(gcd(left_number, right_number))
     return question, correct_answer
 
