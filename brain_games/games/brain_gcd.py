@@ -2,7 +2,7 @@ from random import randint
 from brain_games.scripts.game_engine import run_game
 
 def gcd(a, b):
-    while b != 0:
+    while b:
         a, b = b, a % b
     return a
 
@@ -14,5 +14,5 @@ def generate_question_and_answer():
     return question, correct_answer
 
 def main():
-    game_rule = 'Find the greatest common divisor of given numbers.'
-    run_game(generate_question_and_answer, game_rule, "GCD Game")
+    game_rule = "Find the greatest common divisor of given numbers."
+    run_game(generate_question_and_answer, game_rule, "brain-gcd")
